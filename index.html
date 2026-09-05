@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#062370">
-  <title>Produtos - [SUA EMPRESA DE MASSAS]</title>
-  <meta name="description" content="Massas prontas artesanais. Qualidade e sabor na sua mesa todos os dias.">
+  <title>TEKNOFIX Massas Prontas - Argamassa para Obras</title>
+  <meta name="description" content="Massas prontas TEKNOFIX: argamassa AC1, AC2 e AC3 para obras que exigem o melhor. Qualidade, rendimento e praticidade. Peça pelo WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
@@ -25,48 +25,50 @@
 
   <!-- HEADER -->
   <header id="header" class="header">
-    <div class="logo">
-      <a href="index.html">
-        <span class="logo-marca"><img class="logo-img" src="assets/img/TEKNOFIX.png" alt="TEKNOFIX"></span>
-        <span class="logo-tag">Massas Prontas</span>
-      </a>
+    <div class="header__inner">
+      <div class="logo">
+        <a href="index.html" aria-label="TEKNOFIX Massas Prontas">
+          <img class="logo-img" src="assets/img/TEKNOFIX.png" alt="TEKNOFIX">
+        </a>
+      </div>
+      <nav id="menu">
+        <ul class="menu">
+          <li><a href="#inicio" class="active">Início</a></li>
+          <li>
+            <a href="#produtos">Produtos <i class="fas fa-caret-down"></i></a>
+            <ul class="sub-menu">
+              <li><a href="#produtos">MASSA AC1</a></li>
+              <li><a href="#produtos">MASSA AC2</a></li>
+              <li><a href="#produtos">MASSA AC3</a></li>
+              <li><a href="#produtos">CIMENTO COMUM</a></li>
+            </ul>
+          </li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a class="header-buy" href="https://wa.me/554195928775" target="_blank" rel="noopener">Comprar</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
     </div>
-    <nav id="menu">
-      <ul class="menu">
-        <li><a href="index.html" class="active">Início</a></li>
-        <li>
-          <a href="index.html#produtos">Produtos <i class="fas fa-caret-down"></i></a>
-          <ul class="sub-menu">
-            <li><a href="index.html#produtos">MASSA AC1</a></li>
-            <li><a href="index.html#produtos">MASSA AC2</a></li>
-            <li><a href="index.html#produtos">MASSA AC3</a></li>
-            <li><a href="index.html#produtos">CIMENTO COMUM</a></li>
-          </ul>
-        </li>
-        <li><a href="index.html#sobre">Sobre</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
-      </ul>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
   </header>
 
   <main class="prod-layout-01">
 
-    <!-- BREADCRUMB -->
-    <div class="bread bread--default">
-      <div class="wrapper">
-        <div class="bread__row">
-          <nav aria-label="breadcrumb">
-            <ol id="breadcrumb">
-              <li class="bread__column"><a href="index.html">Home</a></li>
-              <li class="bread__column">Produtos</li>
-            </ol>
-          </nav>
-          <h1 class="bread__title">Produtos</h1>
-          <p class="bread__subtitle">Massas frescas e prontas, feitas com ingredientes selecionados todos os dias.</p>
-        </div>
+    <!-- HERO BANNER -->
+    <section class="hero" id="inicio">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata">
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
+      </video>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">Massas Prontas TEKNOFIX</p>
+        <h1 class="hero__title">Argamassa <span class="hero__brand">TEKNOFIX</span><br>para obras que exigem o melhor</h1>
+        <p class="hero__text">Na TEKNOFIX, oferecemos as massas prontas <strong>AC1, AC2 e AC3</strong>, atendendo às mais variadas necessidades da sua obra — do assentamento ao acabamento — com qualidade, rendimento e a praticidade que o profissional exige.</p>
+        <a class="hero__button" href="https://wa.me/554195928775" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Comprar
+        </a>
       </div>
-    </div>
+    </section>
 
     <section class="container" id="produtos">
       <div class="wrapper">
@@ -126,16 +128,16 @@
 
 <section class="sobre wrapper" id="sobre">
       <div class="sobre__inner">
-        <h2 class="sobre__title">Nossa história</h2>
-        <p class="sobre__text">Há mais de uma década preparamos massas frescas artesanais com ingredientes selecionados e muito cuidado. Cada lote é produzido no dia, garantindo frescor, textura e sabor caseiro de verdade. [Edite este texto com a história da sua empresa.]</p>
+        <h2 class="sobre__title">Nossas massas, para todas as necessidades</h2>
+        <p class="sobre__text">A TEKNOFIX produz massas prontas de alta qualidade para construção civil. Nossas linhas AC1, AC2 e AC3 atendem às mais variadas necessidades — do assentamento e revestimento ao acabamento fino — com rendimento superior, facilidade de aplicação e sempre o melhor resultado para a sua obra.</p>
       </div>
     </section>
 
     <!-- CTA -->
     <section class="cta" id="contato">
       <div class="wrapper">
-        <h2 class="cta__title">Peça agora as suas massas!</h2>
-        <p class="cta__text">Encomendas pelo WhatsApp ou telefone. Faça seu pedido e receba em casa.</p>
+        <h2 class="cta__title">Peça agora as suas massas prontas!</h2>
+        <p class="cta__text">Solicite um orçamento e receba os produtos com toda a qualidade TEKNOFIX. Atendimento pelo WhatsApp ou telefone.</p>
         <a class="btn btn--whatsapp" href="https://wa.me/554195928775" target="_blank" rel="noopener">
           <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
         </a>
