@@ -458,6 +458,10 @@ footer h3::after {
   padding: 15px 0;
   font-size: 10px;
 }
+.dev-by {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 
 /* ============ WHATSAPP FLOAT ============ */
 .wppButton {
