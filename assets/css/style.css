@@ -575,3 +575,146 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .hamburger { right: 12px; padding: 8px 12px; }
   .footer-end { font-size: 12px; }
 }
+
+
+/* ============ MOBILE POLISH ============ */
+:root { --radius: 16px; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+#produtos, #sobre, #contato { scroll-margin-top: 96px; }
+
+/* ---------- Sticky header (mobile) ---------- */
+@media (max-width: 912px) {
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+    padding: .6rem 0;
+  }
+  .logo { margin: .3rem 0; }
+  .hamburger { padding: 12px 14px; font-size: 1.5rem; }
+}
+
+/* ---------- Mobile menu drawer ---------- */
+@media (max-width: 912px) {
+  nav#menu {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s;
+    pointer-events: none;
+  }
+  nav#menu.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .menu { padding: 8px 0 12px; }
+  .menu > li { border-bottom: 1px solid rgba(255,255,255,.08); }
+  .menu > li:last-child { border-bottom: 0; }
+  .menu > li > a { padding: 16px 20px; font-size: .95em; letter-spacing: 2px; }
+  .sub-menu { background: rgba(255, 255, 255, .06); }
+  .sub-menu li a { padding: 12px 20px 12px 32px; color: rgba(255,255,255,.85); font-size: 13px; }
+}
+
+/* ---------- Cards ---------- */
+.card--prod {
+  border-radius: var(--radius) !important;
+  border: 1px solid #ececec;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: fadeUp .45s ease-out backwards;
+}
+.card--prod:nth-child(2) { animation-delay: .08s; }
+.card--prod:nth-child(3) { animation-delay: .16s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card--prod:active { transform: scale(.98); }
+.card__cover { background: #fff; }
+.card__image { padding: 14px; }
+.card__title {
+  color: var(--secondary-color);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__description { color: var(--grey); }
+.card__button { border-width: 2px; padding: 10px 16px; font-weight: 600; }
+.card__button:hover,
+.card__button:active { background: var(--primary-color); border-color: var(--primary-color); color: #fff; }
+
+/* ---------- Sections ---------- */
+.bread { border-bottom: 1px solid #e6e6e6; }
+.bread__title { font-size: clamp(1.35rem, 6vw, 2rem); }
+.bread__subtitle { font-size: 13px; }
+.sobre__title { font-size: clamp(1.3rem, 5.5vw, 1.75rem); }
+.sobre__text { font-size: 14px; line-height: 1.85; }
+.cta {
+  background: linear-gradient(160deg, #08298f 0%, var(--secondary-color) 45%, #040f35 100%);
+}
+.cta__title { font-size: clamp(1.4rem, 6vw, 1.75rem); }
+.cta__text { font-size: 14px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+/* ---------- Footer (mobile) ---------- */
+@media (max-width: 768px) {
+  footer .row { justify-content: center; gap: 10px; }
+  footer .col-3 {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+  }
+  footer h3::after { margin-left: auto; margin-right: auto; }
+  .social__icons { justify-content: center; }
+}
+
+/* ---------- WhatsApp float pulse ---------- */
+.wppButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, .45);
+  z-index: 0;
+  animation: wppPulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+.wppButton img { position: relative; z-index: 1; }
+@keyframes wppPulse {
+  0%   { transform: scale(1); opacity: .7; }
+  70%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* ---------- Product grid: 2 colunas em celular ---------- */
+@media (max-width: 576px) {
+  .row.gap-30 { --spacing: 12px; }
+  .row.gap-30 .col-3 {
+    flex: 1 1 calc(50% - var(--spacing) * 2);
+    max-width: calc(50% - var(--spacing) * 2);
+  }
+  .card--prod { margin-bottom: 20px; }
+  .card__info { padding: 4px 12px 14px; row-gap: 8px; }
+  .card__title { min-height: 38px; font-size: 14px; }
+  .card__description { font-size: 12.5px; -webkit-line-clamp: 3; line-height: 1.6; }
+  .card__button { font-size: .7em; letter-spacing: 1.5px; padding: 9px 10px; }
+  .wppButton { width: 54px; height: 54px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -188,8 +188,20 @@
   <button class="scrollTop" id="scrollTop" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></button>
 
   <script>
-    document.getElementById('hamburger').addEventListener('click', function () {
-      document.getElementById('menu').classList.toggle('open');
+    var hamburger = document.getElementById('hamburger');
+    var menu = document.getElementById('menu');
+    function toggleMenu(forceClose) {
+      var shouldOpen = forceClose ? false : !menu.classList.contains('open');
+      menu.classList.toggle('open', shouldOpen);
+      var icon = hamburger.querySelector('i');
+      icon.classList.toggle('fa-bars', !shouldOpen);
+      icon.classList.toggle('fa-times', shouldOpen);
+    }
+    hamburger.addEventListener('click', function () { toggleMenu(); });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 912) { toggleMenu(true); }
+      });
     });
     var scrollTop = document.getElementById('scrollTop');
     window.addEventListener('scroll', function () {
