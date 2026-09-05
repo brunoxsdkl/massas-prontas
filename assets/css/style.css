@@ -79,6 +79,14 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   color: #fff;
 }
+.logo-img {
+  max-height: 70px;
+  width: auto;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
 .logo-tag {
   font-size: .75rem;
   font-weight: 400;
@@ -401,6 +409,13 @@ footer h3::after {
   text-transform: uppercase;
   color: var(--secondary-color);
   display: block;
+}
+.footer-img {
+  max-height: 56px;
+  width: auto;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
 }
 .footer-tag {
   font-size: .7rem;
