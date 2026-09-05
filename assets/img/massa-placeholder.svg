@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="#f3f3f3"/>
-  <g>
-    <path d="M62 78 h76 a10 10 0 0 1 10 10 v52 a10 10 0 0 1 -10 10 H62 a10 10 0 0 1 -10 -10 V88 a10 10 0 0 1 10 -10 z" fill="#ffffff" stroke="#062370" stroke-width="5"/>
-    <path d="M62 90 h76" stroke="#062370" stroke-width="5"/>
-    <rect x="68" y="102" width="64" height="34" rx="4" fill="#FC0102"/>
-    <text x="100" y="125" font-family="Verdana, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">MASSA</text>
-  </g>
-</svg>
