@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos - [SUA EMPRESA DE MASSAS]</title>
+  <meta name="description" content="Massas prontas artesanais. Qualidade e sabor na sua mesa todos os dias.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topo">
+    <div class="wrapper">
+      <span><i class="fas fa-phone"></i> (31) 90000-0000</span>
+      <a href="mailto:contato@suaempresa.com.br"><i class="fas fa-envelope"></i> contato@suaempresa.com.br</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="header" class="header">
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-marca">[SUA MARCA]</span>
+        <span class="logo-tag">Massas Prontas</span>
+      </a>
+    </div>
+    <nav id="menu">
+      <ul class="menu">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li>
+          <a href="index.html#produtos">Produtos <i class="fas fa-caret-down"></i></a>
+          <ul class="sub-menu">
+            <li><a href="index.html#produtos">Penne Artesanal</a></li>
+            <li><a href="index.html#produtos">Talharim Fresco</a></li>
+            <li><a href="index.html#produtos">Fusilli Espiral</a></li>
+            <li><a href="index.html#produtos">Lasanha Caseira</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <main class="prod-layout-01">
+
+    <!-- BREADCRUMB -->
+    <div class="bread bread--default">
+      <div class="wrapper">
+        <div class="bread__row">
+          <nav aria-label="breadcrumb">
+            <ol id="breadcrumb">
+              <li class="bread__column"><a href="index.html">Home</a></li>
+              <li class="bread__column">Produtos</li>
+            </ol>
+          </nav>
+          <h1 class="bread__title">Produtos</h1>
+          <p class="bread__subtitle">Massas frescas e prontas, feitas com ingredientes selecionados todos os dias.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="container" id="produtos">
+      <div class="wrapper">
+        <div class="row justify-content-center gap-30">
+
+          <!-- CARD 1 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-penne.svg" alt="Penne Artesanal" title="Penne Artesanal" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Penne Artesanal</h2>
+              <p class="card__description">Massa de penne fresca, corte rígido, ideal para molhos encorpados. Produzida artesanalmente com farinha premium e ovos caipiras.</p>
+              <a class="card__button" href="#" title="Penne Artesanal">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-talharim.svg" alt="Talharim Fresco" title="Talharim Fresco" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Talharim Fresco</h2>
+              <p class="card__description">Tiras finas de massa fresca ao ovo. Cozimento rápido de 3 minutos, textura macia e sabor inconfundível de massa caseira.</p>
+              <a class="card__button" href="#" title="Talharim Fresco">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-fusilli.svg" alt="Fusilli Espiral" title="Fusilli Espiral" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Fusilli Espiral</h2>
+              <p class="card__description">A espiral perfeita para segurar molhos e legumes. Feita à mão, leve e al dente, perfeita para saladas frias e pratos quentes.</p>
+              <a class="card__button" href="#" title="Fusilli Espiral">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-lasanha.svg" alt="Lasanha Caseira" title="Lasanha Caseira" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Lasanha Caseira</h2>
+              <p class="card__description">Folhas de lasanha frescas prontas para montar. Macias, uniformes e que não grudam na montagem. Acompanha receitas exclusivas.</p>
+              <a class="card__button" href="#" title="Lasanha Caseira">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-nhoque.svg" alt="Nhoque de Batata" title="Nhoque de Batata" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Nhoque de Batata</h2>
+              <p class="card__description">Nhoque macio de batata, feito na hora e pronto para congelar. Delicado, leve e com o toque caseiro que derrete na boca.</p>
+              <a class="card__button" href="#" title="Nhoque de Batata">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- CARD 6 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-gnocchi.svg" alt="Espaguete ao Ovo" title="Espaguete ao Ovo" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Espaguete ao Ovo</h2>
+              <p class="card__description">Fios longos e finos de espaguete fresco ao ovo. Perfeito para molhos clássicos e almôndegas. Cozimento em apenas 2 minutos.</p>
+              <a class="card__button" href="#" title="Espaguete ao Ovo">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- CARD 7 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-tortellini.svg" alt="Tortellini de Queijo" title="Tortellini de Queijo" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Tortellini de Queijo</h2>
+              <p class="card__description">Massas recheadas com queijos selecionados, fechadas à mão uma a uma. Um toque de jantar fino na sua mesa em casa.</p>
+              <a class="card__button" href="#" title="Tortellini de Queijo">Saiba Mais</a>
+            </div>
+          </div>
+
+          <!-- CARD 8 -->
+          <div class="col-3 card card--prod">
+            <div class="card__cover">
+              <img class="card__image" src="assets/img/massa-pappardelle.svg" alt="Pappardelle Artesanal" title="Pappardelle Artesanal" loading="lazy">
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">Pappardelle Artesanal</h2>
+              <p class="card__description">Tiras largas e onduladas de massa fresca, perfeitas para ragu e molhos encorpados. Textura premium, sabor de restaurante.</p>
+              <a class="card__button" href="#" title="Pappardelle Artesanal">Saiba Mais</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sobre wrapper" id="sobre">
+      <div class="sobre__inner">
+        <h2 class="sobre__title">Nossa história</h2>
+        <p class="sobre__text">Há mais de uma década preparamos massas frescas artesanais com ingredientes selecionados e muito cuidado. Cada lote é produzido no dia, garantindo frescor, textura e sabor caseiro de verdade. [Edite este texto com a história da sua empresa.]</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contato">
+      <div class="wrapper">
+        <h2 class="cta__title">Peça agora as suas massas!</h2>
+        <p class="cta__text">Encomendas pelo WhatsApp ou telefone. Faça seu pedido e receba em casa.</p>
+        <a class="btn btn--whatsapp" href="https://wa.me/5531900000000" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-3">
+          <span class="footer-marca">[SUA MARCA]</span>
+          <span class="footer-tag">Massas Prontas</span>
+          <div class="social__icons">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-3">
+          <h3>Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html#produtos">Produtos</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <h3>Contato</h3>
+          <ul class="footer-contato">
+            <li><i class="fas fa-phone"></i> (31) 90000-0000</li>
+            <li><i class="fab fa-whatsapp"></i> (31) 90000-0000</li>
+            <li><i class="fas fa-envelope"></i> contato@suaempresa.com.br</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <h3>Institucional</h3>
+          <p class="footer-end"><i class="fas fa-map-marker-alt"></i> Endereço da sua empresa, Belo Horizonte - MG</p>
+          <a class="btn btn--primary" href="https://wa.me/5531900000000" target="_blank" rel="noopener">Envie sua mensagem!</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright-footer">
+      <div class="wrapper-copy">
+        <span>© 2026 [SUA EMPRESA DE MASSAS]. Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a class="wppButton" href="https://wa.me/5531900000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="assets/img/whatsapp-icon.svg" alt="WhatsApp">
+  </a>
+
+  <button class="scrollTop" id="scrollTop" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></button>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('menu').classList.toggle('open');
+    });
+    var scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) { scrollTop.classList.add('show'); } else { scrollTop.classList.remove('show'); }
+    });
+    scrollTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
