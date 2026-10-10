@@ -1,0 +1,12 @@
+{
+  "name": "teknofix-institucional",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional da TEKNOFIX",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
