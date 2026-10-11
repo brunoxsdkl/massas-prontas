@@ -153,7 +153,7 @@ menuButton.addEventListener('click', () => {
   menuButton.setAttribute('aria-expanded', String(open));
   menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
 });
-$$('.navigation a').forEach((link) => link.addEventListener('click', closeMenu));
+$$('.navigation a, .header-inner > .nav-contact').forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && navigation.classList.contains('is-open')) { closeMenu(); menuButton.focus(); }
 });
@@ -234,7 +234,7 @@ if ('IntersectionObserver' in window) {
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        $$('.navigation a').forEach((link) => {
+        $$('.navigation a, .header-inner > .nav-contact').forEach((link) => {
           const current = link.getAttribute('href') === `#${entry.target.id}`;
           link.classList.toggle('is-current', current);
           if (current) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
