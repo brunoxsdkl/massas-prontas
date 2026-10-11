@@ -244,3 +244,39 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '-90px 0px -50% 0px', threshold: 0.05 });
   $$('main section[id]').forEach((section) => navObserver.observe(section));
 }
+
+// Alternate the two hero banners without interrupting reading or keyboard use.
+const heroCarousel = $('#inicio');
+const heroSlides = $$('.hero-slide');
+const heroSelectors = $$('[data-hero-slide]');
+const heroPause = $('.hero-pause');
+const heroMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+let heroIndex = 0;
+let heroPaused = heroMotionPreference.matches;
+let heroHovered = false;
+let heroTimer;
+function showHeroSlide(index) {
+  heroIndex = index;
+  heroSlides.forEach((slide, i) => { slide.hidden = i !== index; });
+  heroSelectors.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+}
+function scheduleHeroRotation() {
+  clearInterval(heroTimer);
+  heroPause.textContent = heroPaused ? 'Retomar alternância' : 'Pausar alternância';
+  if (heroPaused || heroHovered || document.hidden || heroCarousel.contains(document.activeElement)) return;
+  heroTimer = setInterval(() => showHeroSlide((heroIndex + 1) % heroSlides.length), 7000);
+}
+heroSelectors.forEach((button) => button.addEventListener('click', () => {
+  heroPaused = true;
+  showHeroSlide(Number(button.dataset.heroSlide));
+  scheduleHeroRotation();
+}));
+heroPause.addEventListener('click', () => { heroPaused = !heroPaused; scheduleHeroRotation(); });
+heroCarousel.addEventListener('pointerenter', () => { heroHovered = true; scheduleHeroRotation(); });
+heroCarousel.addEventListener('pointerleave', () => { heroHovered = false; scheduleHeroRotation(); });
+heroCarousel.addEventListener('focusin', scheduleHeroRotation);
+heroCarousel.addEventListener('focusout', () => setTimeout(scheduleHeroRotation, 0));
+document.addEventListener('visibilitychange', scheduleHeroRotation);
+heroMotionPreference.addEventListener('change', (event) => { if (event.matches) heroPaused = true; scheduleHeroRotation(); });
+showHeroSlide(0);
+scheduleHeroRotation();

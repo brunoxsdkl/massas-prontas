@@ -50,8 +50,9 @@
   </header>
 
   <main id="principal">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="container hero-layout">
+    <section class="hero" id="inicio" aria-label="Destaques TEKNOFIX" aria-roledescription="carrossel">
+      <div class="hero-slide-stack">
+      <div class="container hero-layout hero-slide" id="hero-argamassas" role="group" aria-roledescription="slide" aria-label="1 de 2: Argamassas">
         <div class="hero-copy">
           <p class="eyebrow light"><span class="eyebrow-line"></span> Argamassas &amp; massas de acabamento</p>
           <h1 id="hero-title">Forte na base.<br>Impecável no<br><span>acabamento.</span></h1>
@@ -73,6 +74,23 @@
           <a class="hero-small-product" href="#produtos" data-product-link="massa-pronta"><img src="/assets/products/massa-pronta-small.webp" width="320" height="480" alt=""><span>Também para<br><strong>o acabamento.</strong></span><svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
         </div>
       </div>
+      <div class="container hero-layout hero-slide hero-ready" id="hero-massa-pronta" role="group" aria-roledescription="slide" aria-label="2 de 2: Massa Pronta" hidden>
+        <div class="hero-copy">
+          <p class="eyebrow light"><span class="eyebrow-line"></span> Massa Pronta TEKNOFIX</p>
+          <h2 class="hero-slide-title">Massa pronta.<br>Praticidade no<br><span>acabamento.</span></h2>
+          <p class="hero-description">A embalagem amarela da linha TEKNOFIX é dedicada ao acabamento fino de superfícies. Conheça a aplicação antes de começar.</p>
+          <ul class="hero-ready-features"><li>Acabamento fino de superfícies</li><li>Uso interno e externo conforme a embalagem</li><li>Apresentação de 20 kg</li></ul>
+          <p class="hero-ready-note">Confira na embalagem o substrato, o preparo e a espessura permitida.</p>
+          <div class="hero-actions"><a class="button button-yellow" href="#produtos" data-product-link="massa-pronta">Conheça a Massa Pronta <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><a class="text-link light" href="#contato">Fale sobre sua obra <svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a></div>
+        </div>
+        <div class="hero-visual" aria-label="Embalagem amarela TEKNOFIX Massa Pronta">
+          <div class="hero-ring" aria-hidden="true"></div><div class="hero-orbit" aria-hidden="true"></div><div class="hero-accent" aria-hidden="true">FIX</div>
+          <img class="hero-pack hero-pack-main hero-ready-pack" src="/assets/products/massa-pronta.webp" width="720" height="1080" alt="TEKNOFIX Massa Pronta amarela, 20 kg" decoding="async">
+          <div class="hero-visual-label"><span class="pulse-dot"></span> ACABAMENTO · SUPERFÍCIES · PRATICIDADE</div>
+        </div>
+      </div>
+      </div>
+      <div class="container hero-controls" aria-label="Controles dos banners"><button type="button" data-hero-slide="0" aria-controls="hero-argamassas" aria-pressed="true">Argamassas</button><button type="button" data-hero-slide="1" aria-controls="hero-massa-pronta" aria-pressed="false">Massa Pronta</button><button type="button" class="hero-pause">Pausar alternância</button></div>
       <div class="line-strip">
         <div class="container strip-inner"><span>ASSENTAR</span><span aria-hidden="true">↗</span><span>REVESTIR</span><span aria-hidden="true">↗</span><span>ACABAR</span><span class="strip-end">CONSTRUIR COM TEKNOFIX</span></div>
       </div>
