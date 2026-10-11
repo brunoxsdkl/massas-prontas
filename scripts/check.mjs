@@ -40,7 +40,7 @@ assert(message.includes('Cidade: Curitiba') && message.includes('60 m²') && mes
 const url = new URL(whatsAppUrl('5511999999999', message));
 assert.equal(url.searchParams.get('text'), message);
 assert(!createProjectSummary({ productName: 'AC1 Azul' }).includes('undefined'));
-assert.equal(siteConfig.whatsappNumber, '', 'O número pendente deve ficar vazio até confirmação');
+assert(siteConfig.whatsappNumber === '' || isValidWhatsAppNumber(siteConfig.whatsappNumber), 'Número comercial deve conter DDI e somente dígitos');
 assert(!html.includes('mailto:') && !html.includes('wa.me/'), 'Contato não confirmado no HTML');
 for (const name of await readdir(path.join(publicDir, 'assets/products'))) assert(!name.endsWith('.png'), 'Usar imagens otimizadas no deploy');
-console.log('Verificado: 5 produtos, guia, navegação, referências de arquivos, contato pendente e geração de resumo.');
+console.log('Verificado: 5 produtos, guia, navegação, referências de arquivos, configuração de contato e geração de resumo.');

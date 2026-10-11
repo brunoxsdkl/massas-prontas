@@ -168,7 +168,7 @@ if (contactEnabled) {
   $('#contact-submit-label').textContent = 'Preparar mensagem para o WhatsApp';
   $('#form-privacy').textContent = 'Você revisa o resumo antes de abrir o WhatsApp. Nenhum dado é enviado por este formulário.';
   const floating = $('#floating-contact');
-  floating.href = whatsAppUrl(siteConfig.whatsappNumber, `Olá, ${siteConfig.salesContactName}! Quero conhecer a linha TEKNOFIX.`);
+  floating.href = `https://wa.me/${siteConfig.whatsappNumber}`;
   floating.target = '_blank';
   floating.rel = 'noopener noreferrer';
   floating.setAttribute('aria-label', `Conversar com ${siteConfig.salesContactName} pelo WhatsApp`);
