@@ -55,9 +55,10 @@ function selectProduct(id, { query = true, focusTab = false } = {}) {
   panel.style.setProperty('--product-color', product.color);
   panel.style.setProperty('--product-soft', product.softColor);
   $('#product-image').src = `/assets/products/${id}.webp`;
-  $('#product-image').alt = `Embalagem TEKNOFIX ${product.name} de 20 kg`;
+  $('#product-image').alt = `Embalagem TEKNOFIX ${product.name} de ${product.weightKg} kg`;
   $('.product-stage-category').textContent = product.category === 'Massa pronta' ? 'PRONTA' : product.category;
   $('#product-name').textContent = product.name;
+  $('#product-weight').textContent = product.weightKg;
   $('#product-context').textContent = product.context;
   $('#product-tagline').textContent = product.label;
   $('#product-description').textContent = product.description;
@@ -114,10 +115,11 @@ $$('[data-guide]').forEach((button) => {
 $('#details-button').addEventListener('click', (event) => {
   dialogTrigger = event.currentTarget;
   $('#dialog-title').textContent = activeProduct.name;
+  $('#dialog-presentation').textContent = `Linha TEKNOFIX · ${activeProduct.weightKg} kg`;
   $('#dialog-description').textContent = activeProduct.description;
   $('#dialog-caution').textContent = activeProduct.caution;
   $('#dialog-image').src = `/assets/products/${activeProduct.id}.webp`;
-  $('#dialog-image').alt = `TEKNOFIX ${activeProduct.name}, 20 kg`;
+  $('#dialog-image').alt = `TEKNOFIX ${activeProduct.name}, ${activeProduct.weightKg} kg`;
   dialog.style.setProperty('--product-soft', activeProduct.softColor);
   dialog.style.setProperty('--product-color', activeProduct.color);
   setUses($('#dialog-uses'), activeProduct.uses);
@@ -180,7 +182,7 @@ $('#contact-form').addEventListener('submit', (event) => {
   event.preventDefault();
   const product = productById($('#interest').value);
   const message = createProjectSummary({
-    productName: product ? `${product.name} — 20 kg` : 'Preciso de orientação para escolher',
+    productName: product ? `${product.name} — ${product.weightKg} kg` : 'Preciso de orientação para escolher',
     city: $('#city').value,
     area: $('#area').value,
     description: $('#project-description').value,
