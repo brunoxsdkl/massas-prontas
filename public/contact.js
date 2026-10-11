@@ -2,7 +2,7 @@ export function isValidWhatsAppNumber(value) {
   return typeof value === 'string' && /^\d{10,15}$/.test(value);
 }
 
-export function createProjectSummary({ productName, city, area, description }, contactName = 'Daniele') {
+export function createProjectSummary({ productName, city, area, description }, contactName = 'TEKNOFIX') {
   const lines = [`Olá, ${contactName}! Gostaria de informações e uma cotação da TEKNOFIX.`, '', `Produto: ${productName}`];
   if (city?.trim()) lines.push(`Cidade: ${city.trim()}`);
   if (area?.trim()) lines.push(`Área estimada: ${area.trim()} m²`);

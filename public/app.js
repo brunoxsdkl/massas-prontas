@@ -163,7 +163,7 @@ document.addEventListener('click', (event) => {
 window.matchMedia('(min-width: 761px)').addEventListener('change', (event) => { if (event.matches) closeMenu(); });
 
 if (contactEnabled) {
-  $('#contact-channel-title').textContent = `Converse com ${siteConfig.salesContactName} pelo WhatsApp`;
+  $('#contact-channel-title').textContent = `Converse com a ${siteConfig.salesContactName} pelo WhatsApp`;
   $('#contact-channel-text').textContent = 'Informações sobre produtos, aplicações e cotação.';
   $('#contact-submit-label').textContent = 'Preparar mensagem para o WhatsApp';
   $('#form-privacy').textContent = 'Você revisa o resumo antes de abrir o WhatsApp. Nenhum dado é enviado por este formulário.';
@@ -171,9 +171,9 @@ if (contactEnabled) {
   floating.href = `https://wa.me/${siteConfig.whatsappNumber}`;
   floating.target = '_blank';
   floating.rel = 'noopener noreferrer';
-  floating.setAttribute('aria-label', `Conversar com ${siteConfig.salesContactName} pelo WhatsApp`);
+  floating.setAttribute('aria-label', `Conversar com a ${siteConfig.salesContactName} pelo WhatsApp`);
   floating.querySelector('span').textContent = 'Fale pelo WhatsApp';
-  $('.faq-list details:last-child p').textContent = 'Tenha em mãos o produto de interesse, a cidade, o ambiente da obra e as características do revestimento. Monte seu resumo na área de atendimento e abra a conversa com Daniele pelo WhatsApp.';
+  $('.faq-list details:last-child p').textContent = 'Tenha em mãos o produto de interesse, a cidade, o ambiente da obra e as características do revestimento. Monte seu resumo na área de atendimento e abra a conversa com a TEKNOFIX pelo WhatsApp.';
 }
 
 $('#contact-form').addEventListener('submit', (event) => {
@@ -245,38 +245,29 @@ if ('IntersectionObserver' in window) {
   $$('main section[id]').forEach((section) => navObserver.observe(section));
 }
 
-// Alternate the two hero banners without interrupting reading or keyboard use.
+// Rotate automatically, with no visible decision controls.
 const heroCarousel = $('#inicio');
 const heroSlides = $$('.hero-slide');
-const heroSelectors = $$('[data-hero-slide]');
-const heroPause = $('.hero-pause');
 const heroMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 let heroIndex = 0;
-let heroPaused = heroMotionPreference.matches;
-let heroHovered = false;
 let heroTimer;
 function showHeroSlide(index) {
   heroIndex = index;
-  heroSlides.forEach((slide, i) => { slide.hidden = i !== index; });
-  heroSelectors.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+  heroSlides.forEach((slide, i) => {
+    const inactive = i !== index;
+    slide.hidden = inactive;
+    slide.inert = inactive;
+    slide.setAttribute('aria-hidden', String(inactive));
+  });
 }
 function scheduleHeroRotation() {
   clearInterval(heroTimer);
-  heroPause.textContent = heroPaused ? 'Retomar alternância' : 'Pausar alternância';
-  if (heroPaused || heroHovered || document.hidden || heroCarousel.contains(document.activeElement)) return;
-  heroTimer = setInterval(() => showHeroSlide((heroIndex + 1) % heroSlides.length), 7000);
+  if (heroMotionPreference.matches || document.hidden || heroCarousel.contains(document.activeElement)) return;
+  heroTimer = setInterval(() => showHeroSlide((heroIndex + 1) % heroSlides.length), 6500);
 }
-heroSelectors.forEach((button) => button.addEventListener('click', () => {
-  heroPaused = true;
-  showHeroSlide(Number(button.dataset.heroSlide));
-  scheduleHeroRotation();
-}));
-heroPause.addEventListener('click', () => { heroPaused = !heroPaused; scheduleHeroRotation(); });
-heroCarousel.addEventListener('pointerenter', () => { heroHovered = true; scheduleHeroRotation(); });
-heroCarousel.addEventListener('pointerleave', () => { heroHovered = false; scheduleHeroRotation(); });
 heroCarousel.addEventListener('focusin', scheduleHeroRotation);
 heroCarousel.addEventListener('focusout', () => setTimeout(scheduleHeroRotation, 0));
 document.addEventListener('visibilitychange', scheduleHeroRotation);
-heroMotionPreference.addEventListener('change', (event) => { if (event.matches) heroPaused = true; scheduleHeroRotation(); });
+heroMotionPreference.addEventListener('change', scheduleHeroRotation);
 showHeroSlide(0);
 scheduleHeroRotation();
