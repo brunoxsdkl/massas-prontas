@@ -297,9 +297,6 @@ body.dialog-open{overflow:hidden}
 /* Compact mobile layout with the same automatic banner experience. */
 @media(max-width:760px){.hero-slide-stack .hero-layout{padding-top:26px;padding-bottom:26px}.hero-slide-stack h1,.hero-slide-title{font-size:clamp(36px,8.2vw,48px);margin-top:20px;margin-bottom:22px;line-height:1.09}.hero-slide-stack .hero-description{font-size:12px;line-height:1.8}.hero-slide-stack .hero-actions{margin-top:23px;gap:15px}.hero-slide-stack .hero-visual{min-height:340px;aspect-ratio:auto;width:min(100%,390px);margin-top:22px}.hero-ready-features{margin-top:16px;font-size:11px;gap:5px}.hero-ready-note{font-size:10px;margin-top:12px}.hero-slide[hidden]{transform:translateX(12px)}}
 @media(prefers-reduced-motion:reduce){.hero-slide,.hero-slide[hidden]{transition:none;transform:none}}
-.footer-main{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
-.footer-main .footer-brand{margin-inline:auto}
-.footer-main nav{justify-content:center;flex-wrap:wrap}
 .footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
 .footer-credit{text-align:center;color:#bac1ae;font-size:10px}
 .footer-bottom>span:last-child{text-align:right}
