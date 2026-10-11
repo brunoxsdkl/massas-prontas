@@ -301,3 +301,4 @@ body.dialog-open{overflow:hidden}
 .footer-credit{text-align:center;color:#bac1ae;font-size:10px}
 .footer-bottom>span:last-child{text-align:right}
 @media(max-width:760px){.footer-bottom{grid-template-columns:1fr;text-align:center;justify-items:center;gap:12px}.footer-bottom>span:last-child{text-align:center}.footer-credit{font-size:10px}}
+.hero-pack-link{display:block;cursor:pointer}.hero-pack-link>img{display:block;width:100%;height:auto;object-fit:contain}.hero-pack-link:focus-visible{outline:3px solid var(--yellow);outline-offset:6px;border-radius:8px}
