@@ -270,3 +270,17 @@ body.dialog-open{overflow:hidden}
 @media(max-width:980px){.navigation{font-size:12px;gap:16px}.header-inner{gap:12px}.header-inner>.nav-contact{padding:11px 13px;font-size:11px}}
 @media(max-width:760px){html{scroll-padding-top:135px}.header-inner{height:auto;min-height:74px;padding-block:10px;grid-template-columns:1fr auto;gap:8px 20px}.brand{grid-column:1;grid-row:1}.menu-toggle{grid-column:2;grid-row:1;color:#161616;border-color:#16161640}.menu-toggle>span{background:#161616}.header-inner>.nav-contact{grid-column:2;grid-row:2;font-size:11px;padding:10px 13px}.navigation{grid-column:auto;grid-row:auto;top:100%;background:#fff;color:#161616;border-bottom-color:#deded8;font-size:15px;text-align:center;gap:0}.navigation>a{padding:17px 7px}}
 @media(prefers-reduced-motion:reduce){.header-inner>.nav-contact:hover,.header-inner>.nav-contact:focus-visible,.header-inner>.nav-contact:hover .icon,.header-inner>.nav-contact:focus-visible .icon{transform:none}}
+/* Lighter gray hero; packaging layout and motion remain unchanged. */
+.hero{background:#666a65}
+.hero .eyebrow.light,.hero-description,.hero-caption,.hero-visual-label{color:#f0f1e9}
+.hero::before{opacity:.12}
+.hero-ring,.hero-orbit{border-color:#ffffff26}
+.hero-accent{color:#ffffff08}
+/* WhatsApp-shaped floating contact shortcut; preserve its existing destination. */
+.floating-contact{width:58px;height:58px;padding:13px;justify-content:center;gap:0;border:0;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 5px 18px #0003;animation:whatsapp-pulse 2.6s ease-out infinite}
+.floating-contact>.icon{width:32px;height:32px;fill:currentColor;stroke:none;color:#fff}
+.floating-contact>span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.floating-contact:hover,.floating-contact:focus-visible{background:#1db954}
+@keyframes whatsapp-pulse{0%,100%{box-shadow:0 5px 18px #0003,0 0 0 0 #25d36655}60%{box-shadow:0 5px 18px #0003,0 0 0 12px #25d36600}}
+@media(max-width:760px){.floating-contact{width:54px;height:54px;padding:12px}.floating-contact>.icon{width:30px;height:30px}}
+@media(prefers-reduced-motion:reduce){.floating-contact{animation:none}.floating-contact:hover{transform:none}}
