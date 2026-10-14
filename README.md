@@ -1,6 +1,6 @@
 # TEKNOFIX — site institucional
 
-Vitrine institucional de argamassas e massa de acabamento, com identidade TEKNOFIX, cinco apresentações, seleção de produtos, guia de categorias, detalhes acessíveis e atendimento comercial. Sem catálogo de preços, carrinho ou pagamentos.
+Vitrine institucional de argamassas e massa de acabamento, com identidade TEKNOFIX, sete apresentações, seleção de produtos, guia de categorias, detalhes acessíveis e atendimento comercial. Sem catálogo de preços, carrinho ou pagamentos.
 
 ## Estrutura e publicação
 
@@ -41,3 +41,9 @@ Fontes DejaVu hospedadas localmente; licença em `public/assets/fonts/LICENSE.tx
 ## Verificação
 
 Os checks locais cobrem o catálogo, âncoras, arquivos, referências ARIA e mensagens. A navegação usa elementos nativos, abas com teclado, diálogo modal, menu com Escape e preferências de movimento reduzido. Sem o controle de navegador suportado neste ambiente, a inspeção visual de desktop/mobile não pode ser declarada como concluída. O deploy deve ser conferido também por resposta HTTP, assets e estado READY da Vercel.
+
+## Rejunte Tipo II — 1 kg
+
+Incluído como sétimo produto e quarto banner no carrossel automático. A apresentação contém as seis cores informadas: Cinza Platina, Preto, Branco, Areia, Marrom e Grafite, e a imagem de embalagem com visor do produto. A seleção, o diálogo e o formulário usam os dados de `public/products.js`. As imagens WebP em duas dimensões preservam transparência.
+
+Backup anterior: branch `backup/antes-rejunte-2026-10-14`, commit `0b65b8e8c0275899d62e8cfe40e312c40805359f`, implantação `dpl_HTboJZqFJy7a9xN1DyFWNV9Ebj7W`. Para restaurar, reverta o commit de inclusão e publique no mesmo projeto `massas-prontas`.

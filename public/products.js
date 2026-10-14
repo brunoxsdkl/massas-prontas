@@ -41,6 +41,13 @@ export const products = Object.freeze([
     uses: ['Para pequenos reparos', 'Embalagem compacta de 5 kg', 'Preparo conforme as orientações da embalagem'],
     caution: 'Confira na embalagem o preparo, as proporções de mistura e as superfícies compatíveis antes de aplicar. O cimento comum tem função diferente da argamassa colante e da massa de acabamento.',
   },
+  {
+    id: 'rejunte-tipo-ii', weightKg: 1, category: 'Rejunte', colorName: '6 cores', color: '#bc2027', softColor: '#f5ece8',
+    name: 'Rejunte Tipo II', label: 'O acabamento ganha cor.', context: 'Rejuntamento · 6 cores · 1 kg',
+    description: 'Para o acabamento das juntas entre revestimentos, o Rejunte Tipo II TEKNOFIX tem embalagem de 1 kg com visor para visualizar o produto. Disponível em Cinza Platina, Preto, Branco, Areia, Marrom e Grafite, para compor o acabamento da sua obra.',
+    uses: ['Seis opções de cores para o acabamento', 'Embalagem com visor do produto', 'Apresentação de 1 kg'],
+    caution: 'Confira na embalagem os revestimentos, ambientes e larguras de junta compatíveis, além do preparo e dos cuidados de aplicação. Confirme a cor escolhida antes de iniciar o serviço.',
+  },
 ]);
 
 export const guideChoices = Object.freeze({

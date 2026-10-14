@@ -19,11 +19,11 @@ for (const url of attributes) {
 for (const match of html.matchAll(/\b(?:aria-controls|aria-labelledby|for)="([^"]+)"/g)) {
   for (const id of match[1].split(' ')) assert(ids.includes(id), `Referência HTML ausente: ${id}`);
 }
-assert.equal(products.length, 6);
+assert.equal(products.length, 7);
 assert.deepEqual(products.map((p) => [p.id, p.category]), [
-  ['ac1-azul', 'AC1'], ['ac1-verde', 'AC1'], ['ac2-laranja', 'AC2'], ['ac3-roxa', 'AC3'], ['massa-pronta', 'Massa pronta'], ['cimento-comum', 'Cimento'],
+  ['ac1-azul', 'AC1'], ['ac1-verde', 'AC1'], ['ac2-laranja', 'AC2'], ['ac3-roxa', 'AC3'], ['massa-pronta', 'Massa pronta'], ['cimento-comum', 'Cimento'], ['rejunte-tipo-ii', 'Rejunte'],
 ]);
-assert.equal(new Set(products.map((p) => p.id)).size, 6);
+assert.equal(new Set(products.map((p) => p.id)).size, 7);
 for (const product of products) {
   assert(ids.includes(`tab-${product.id}`), `Tab ausente: ${product.id}`);
   await access(path.join(publicDir, `assets/products/${product.id}.webp`));
@@ -44,4 +44,7 @@ assert(!createProjectSummary({ productName: 'AC1 Azul' }).includes('undefined'))
 assert(siteConfig.whatsappNumber === '' || isValidWhatsAppNumber(siteConfig.whatsappNumber), 'Número comercial deve conter DDI e somente dígitos');
 assert(!html.includes('mailto:') && !html.includes('wa.me/'), 'Contato não confirmado no HTML');
 for (const name of await readdir(path.join(publicDir, 'assets/products'))) assert(!name.endsWith('.png'), 'Usar imagens otimizadas no deploy');
-console.log('Verificado: 6 produtos, guia, navegação, referências de arquivos, configuração de contato e geração de resumo.');
+console.log('Verificado: 7 produtos, guia, navegação, referências de arquivos, configuração de contato e geração de resumo.');
+
+assert.equal(products.find(p => p.id === 'rejunte-tipo-ii').weightKg, 1);
+assert(html.includes('id="hero-rejunte"') && html.includes('value="rejunte-tipo-ii"'));
