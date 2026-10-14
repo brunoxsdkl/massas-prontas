@@ -311,3 +311,6 @@ body.dialog-open{overflow:hidden}
 @media(min-width:761px) and (max-width:1100px){.product-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .hero-rejunte-pack{width:57%;left:23%;top:3%}
 @media(max-width:760px){.hero-rejunte-pack{width:57%;left:23%;top:3%}}
+
+/* Mantém logo e contato dentro da largura em celulares estreitos. */
+@media(max-width:760px){.header-inner{grid-template-columns:minmax(0,1fr) auto}.site-header .brand{max-width:100%}}
