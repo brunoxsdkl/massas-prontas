@@ -314,3 +314,253 @@ body.dialog-open{overflow:hidden}
 
 /* Mantém logo e contato dentro da largura em celulares estreitos. */
 @media(max-width:760px){.header-inner{grid-template-columns:minmax(0,1fr) auto}.site-header .brand{max-width:100%}}
+
+/* === DESIGN IMPROVEMENTS v2 === */
+
+/* --- 0. Custom properties for consistent animation timings --- */
+:root{
+  --dur-fast:.18s;
+  --dur-md:.35s;
+  --dur-slow:.6s;
+  --dur-xl:.9s;
+  --ease-bounce:cubic-bezier(.34,1.56,.64,1);
+  --ease-smooth:cubic-bezier(.4,0,.2,1);
+  --glow-yellow:0 0 24px #f5d42b40;
+}
+
+/* --- 1. Smooth Scroll & Global Polish --- */
+html{scroll-behavior:smooth}
+body{-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+
+/* Page-load fade-in */
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+body{animation:pageIn .8s var(--ease-smooth) both}
+
+/* --- 2. Hero Section Enhancements --- */
+
+/* Gradient overlay for depth */
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#17171780 0%,transparent 45%);pointer-events:none;z-index:1}
+.hero>*{position:relative;z-index:2}
+.hero .hero-slide-stack{position:relative;z-index:2}
+.hero .line-strip{z-index:3}
+
+/* Subtle animated grain texture */
+@keyframes grainShift{0%{transform:translate(0,0)}25%{transform:translate(-2%,3%)}50%{transform:translate(3%,-2%)}75%{transform:translate(-3%,-1%)}100%{transform:translate(0,0)}}
+.hero .hero-slide-stack::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.03;pointer-events:none;z-index:0;animation:grainShift 8s steps(4) infinite}
+
+/* Hero title span text gradient */
+.hero h1 span,.hero-slide-title span{background:linear-gradient(135deg,#f5d42b 30%,#fff4b0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Subtle glow behind hero main product image */
+.hero-pack-main::before{content:'';position:absolute;inset:10%;border-radius:50%;background:radial-gradient(circle,#f5d42b18 0%,transparent 70%);z-index:-1;filter:blur(30px)}
+
+/* Improved hero pack hover */
+.hero-visual:hover .hero-pack-main{transform:rotate(0) translateY(-12px) scale(1.03)}
+.hero-visual:hover .hero-pack-left{transform:rotate(-16deg) translateX(-12px) scale(1.02)}
+.hero-visual:hover .hero-pack-right{transform:rotate(16deg) translateX(12px) scale(1.02)}
+.hero-pack{transition:transform .7s var(--ease),filter .5s}
+
+/* Scrolling text animation for line-strip */
+@keyframes stripScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.strip-inner{overflow:hidden;white-space:nowrap}
+
+/* --- 3. Product Section Improvements --- */
+
+/* Product tab hover: subtle scale on images */
+.product-tab:hover img{transform:translateY(-4px) scale(1.05)}
+.product-tab img{transition:transform var(--dur-md) var(--ease)}
+
+/* Active tab: gradient border-bottom instead of box-shadow */
+.product-tab.is-active{box-shadow:none;border-bottom:3px solid var(--product-color);background:linear-gradient(to bottom,#fff,#fafaf6)}
+
+/* Product card hover: lift + enhanced shadow */
+.product-panel{transition:box-shadow var(--dur-md) var(--ease-smooth),transform var(--dur-md) var(--ease-smooth)}
+.product-panel:hover{box-shadow:0 18px 60px #17171712;transform:translateY(-2px)}
+
+/* Shimmer effect on product stage */
+@keyframes stageShimmer{0%{left:-150%}100%{left:150%}}
+.product-stage::after{content:'';position:absolute;top:0;left:-150%;width:80%;height:100%;background:linear-gradient(105deg,transparent 40%,#ffffff12 50%,transparent 60%);z-index:0;animation:stageShimmer 6s ease-in-out infinite;pointer-events:none}
+
+/* Smoother product stage image entrance */
+.product-panel.is-changing .product-stage>img{animation:packInV2 .55s var(--ease) both}
+@keyframes packInV2{from{opacity:0;transform:translateY(18px) rotate(-3deg) scale(.96)}to{opacity:1;transform:translateY(0) rotate(0) scale(1)}}
+
+/* Product stage hover: better image transition */
+.product-stage>img{transition:transform .5s var(--ease),filter .4s}
+.product-stage:hover>img{transform:rotate(-2deg) translateY(-7px) scale(1.02)}
+
+/* --- 4. Guide Section --- */
+
+/* Guide option hover: card lift with shadow */
+.guide-option{transition:background var(--dur-fast),border var(--dur-fast),transform var(--dur-md) var(--ease-smooth),box-shadow var(--dur-md) var(--ease-smooth)}
+.guide-option:hover{transform:translateY(-2px);box-shadow:0 8px 25px #17171708}
+
+/* Selected option pulse on selector dot */
+@keyframes selectorPulse{0%,100%{box-shadow:0 0 0 0 #17171730}50%{box-shadow:0 0 0 6px #17171700}}
+.is-selected .option-selector{animation:selectorPulse 2s ease-in-out infinite}
+
+/* Guide result entrance animation */
+@keyframes resultSlideIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.guide-result{animation:resultSlideIn var(--dur-md) var(--ease-smooth)}
+
+/* --- 5. FAQ Section --- */
+
+/* Smooth accordion open/close with max-height */
+.faq details p{max-height:0;overflow:hidden;padding-top:0;opacity:0;transition:max-height .4s var(--ease-smooth),padding .3s,opacity .3s}
+.faq details[open] p{max-height:300px;padding-top:20px;opacity:1}
+
+/* Left border accent when open */
+.faq details{transition:border-left .25s,padding-left .25s;border-left:3px solid transparent;padding-left:0}
+.faq details[open]{border-left-color:var(--yellow);padding-left:16px}
+
+/* Summary hover background */
+.faq summary{padding:4px 8px;margin:-4px -8px;border-radius:3px;transition:background var(--dur-fast)}
+.faq summary:hover{background:#f0f0e8}
+
+/* --- 6. Contact Section --- */
+
+/* Curved separator at the top */
+.contact::before{content:'';position:absolute;top:-1px;left:0;right:0;height:40px;background:var(--paper);border-radius:0 0 50% 50%;z-index:2}
+
+/* Form input focus glow */
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#d4b800;box-shadow:0 0 0 3px #f5d42b30;outline:none}
+
+/* Button hover ripple-like effect */
+@keyframes btnRipple{0%{transform:scale(0);opacity:.35}100%{transform:scale(2.5);opacity:0}}
+.form-submit{position:relative;overflow:hidden}
+.form-submit::after{content:'';position:absolute;width:100%;aspect-ratio:1;background:radial-gradient(circle,#fff3 0%,transparent 60%);border-radius:50%;transform:scale(0);opacity:0;pointer-events:none;left:50%;top:50%;translate:-50% -50%}
+.form-submit:hover::after{animation:btnRipple .6s ease-out}
+
+/* Floating WhatsApp button: better hover scale */
+.floating-contact{transition:transform var(--dur-md) var(--ease-bounce),background var(--dur-fast),box-shadow var(--dur-md)}
+.floating-contact:hover{transform:translateY(-4px) scale(1.08)}
+
+/* --- 7. Footer Improvements --- */
+
+/* Gradient separator at top */
+.site-footer{border-top:2px solid transparent;border-image:linear-gradient(90deg,transparent 5%,var(--yellow) 50%,transparent 95%) 1}
+
+/* Better link hover transitions */
+.footer-main nav a{transition:color var(--dur-fast),transform var(--dur-fast)}
+.footer-main nav a:hover{color:var(--yellow);transform:translateX(2px)}
+
+/* Back-to-top glow on hover */
+.back-top{transition:border-color var(--dur-fast),box-shadow var(--dur-md),transform var(--dur-md) var(--ease)}
+.back-top:hover{border-color:var(--yellow);box-shadow:var(--glow-yellow);transform:translateY(-3px)}
+
+/* --- 8. General Enhancements --- */
+
+/* Improved button hover states */
+.button{transition:background var(--dur-fast),transform var(--dur-md) var(--ease-bounce),box-shadow var(--dur-md),border-color var(--dur-fast)}
+.button:hover{transform:translateY(-3px);box-shadow:0 8px 25px #0003}
+.button:active{transform:translateY(-1px) scale(.97);box-shadow:0 3px 10px #0002}
+.button-yellow:hover{box-shadow:0 8px 30px #f5d42b30}
+.button-dark:hover{box-shadow:0 8px 25px #17171730}
+
+/* Glassmorphism sticky header */
+.site-header{background:#ffffffdb;backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);border-bottom:1px solid #deded8a0;transition:background var(--dur-md),box-shadow var(--dur-md)}
+
+/* Smoother product dialog entrance */
+.product-dialog{animation:dialogIn .4s var(--ease-smooth) both}
+@keyframes dialogIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.product-dialog::backdrop{animation:backdropIn .35s ease both}
+@keyframes backdropIn{from{opacity:0}to{opacity:1}}
+
+/* --- 9. Typography Polish --- */
+
+/* Heading letter-spacing transitions */
+h1,h2,h3{transition:letter-spacing var(--dur-md)}
+
+/* Eyebrow animated line reveal */
+@keyframes lineReveal{from{width:0}to{width:25px}}
+.eyebrow-line{animation:lineReveal var(--dur-slow) var(--ease) both;overflow:hidden}
+
+/* --- 10. Micro-interactions --- */
+
+/* Improved text-link underline animation */
+.text-link{border-bottom-width:1.5px;transition:gap var(--dur-fast),border-color var(--dur-fast),color var(--dur-fast)}
+.text-link:hover{border-bottom-color:currentColor}
+
+/* Cursor pointer where missing */
+a[href],.guide-option,summary,.product-tab,.text-link{cursor:pointer}
+
+/* Active states for buttons */
+.button-yellow:active{background:#e6c525}
+.button-dark:active{background:#222}
+
+/* Hero small product hover lift */
+.hero-small-product{transition:transform var(--dur-md) var(--ease),background var(--dur-fast)}
+.hero-small-product:hover{transform:translateY(-3px);background:#3a3d2fdf}
+
+/* Guide tool subtle shadow on hover */
+.guide-tool{transition:box-shadow var(--dur-md) var(--ease-smooth),transform var(--dur-md) var(--ease-smooth)}
+.guide-tool:hover{box-shadow:0 20px 70px #17171710}
+
+/* Brand statement hover subtle lift */
+.brand-statement{transition:transform var(--dur-md) var(--ease),box-shadow var(--dur-md)}
+.brand-statement:hover{transform:translateY(-3px);box-shadow:0 20px 50px #0004}
+
+/* About principles card hover */
+.about-principles>div{transition:transform var(--dur-md) var(--ease-smooth)}
+.about-principles>div:hover{transform:translateY(-2px)}
+
+/* Pulse-dot improved glow */
+.pulse-dot{box-shadow:0 0 0 4px #f5d42b14,0 0 12px #f5d42b30}
+
+/* Product footnote fade-in feel */
+.product-footnote{transition:opacity var(--dur-md)}
+
+/* Contact channel hover */
+.contact-channel{transition:transform var(--dur-md) var(--ease-smooth)}
+.contact-channel:hover{transform:translateX(4px)}
+
+/* Dialog close button hover */
+.dialog-close{transition:background var(--dur-fast),border-color var(--dur-fast),transform var(--dur-md)}
+.dialog-close:hover{background:#f0f0ea;border-color:#b0b3a6;transform:rotate(90deg)}
+
+/* Weight badge subtle float */
+@keyframes badgeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.weight-badge{animation:badgeFloat 3s ease-in-out infinite}
+
+/* --- Responsive adjustments for new styles --- */
+@media(max-width:760px){
+  .contact::before{height:25px}
+  .faq details[open]{padding-left:12px}
+  .product-panel:hover{transform:none}
+}
+
+@media(max-width:390px){
+  .contact::before{height:18px}
+}
+
+/* --- Respect prefers-reduced-motion --- */
+@media(prefers-reduced-motion:reduce){
+  body{animation:none}
+  .hero .hero-slide-stack::before{animation:none}
+  .product-stage::after{animation:none}
+  .is-selected .option-selector{animation:none}
+  .guide-result{animation:none}
+  .weight-badge{animation:none}
+  .eyebrow-line{animation:none;width:25px}
+  .product-dialog{animation:none}
+  .product-dialog::backdrop{animation:none}
+  .form-submit:hover::after{animation:none}
+  .faq details p{transition:none;max-height:none;opacity:1;padding-top:20px}
+  .faq details:not([open]) p{max-height:0;opacity:0;padding-top:0}
+  .floating-contact:hover{transform:none}
+  .hero-visual:hover .hero-pack-main{transform:rotate(-2deg)}
+  .hero-visual:hover .hero-pack-left{transform:rotate(-12deg)}
+  .hero-visual:hover .hero-pack-right{transform:rotate(12deg)}
+  .button:hover,.button:active{transform:none}
+  .guide-option:hover{transform:none}
+  .product-panel:hover{transform:none}
+  .back-top:hover{transform:none}
+  .hero-small-product:hover{transform:none}
+  .brand-statement:hover{transform:none}
+  .about-principles>div:hover{transform:none}
+  .contact-channel:hover{transform:none}
+  .dialog-close:hover{transform:none}
+  .footer-main nav a:hover{transform:none}
+}
+
+/* === END DESIGN IMPROVEMENTS v2 === */
